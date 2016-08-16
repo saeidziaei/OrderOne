@@ -47,10 +47,10 @@ Enquiry.schema.methods.sendNotificationEmail = function (callback) {
 		}).send({
 			to: admins,
 			from: {
-				name: 'Coinava',
-				email: 'contact@coinava.com',
+				name: 'OrderOne',
+				email: 'contact@OrderOne.com',
 			},
-			subject: 'New Enquiry for Coinava',
+			subject: 'New Enquiry for OrderOne',
 			enquiry: enquiry,
 		}, callback);
 	});

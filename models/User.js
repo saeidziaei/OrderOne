@@ -19,7 +19,6 @@ User.add({
 	
 }, 'Permissions', {
 	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
-	isRep: { type: Boolean, label: 'Is Coinava Rep', index: true },
 });
 
 // Provide access to Keystone
@@ -47,11 +46,11 @@ User.schema.methods.resetPassword = function(callback) {
 		new keystone.Email('forgotten-password').send({
 			user: user,
 			link: '/reset-password/' + user.resetPasswordKey,
-			subject: 'Reset your Coinava Password',
+			subject: 'Reset your OrderOne Password',
 			to: user.email,
 			from: {
-				name: 'Coinava',
-				email: 'no-reply@coinava.com'
+				name: 'OrderOne',
+				email: 'no-reply@OrderOne.com'
 			}
 		}, callback);
 	});
@@ -63,11 +62,11 @@ User.schema.methods.confirmEmail = function(callback) {
 		new keystone.Email('confirm-registration').send({
 			user: user,
 			link: '/confirm-registration/' + user.emailConfirmationKey,
-			subject: 'Confirm your Coinava registration',
+			subject: 'Confirm your OrderOne registration',
 			to: user.email,
 			from: {
-				name: 'Coinava',
-				email: 'no-reply@coinava.com'
+				name: 'OrderOne',
+				email: 'no-reply@OrderOne.com'
 			}
 		}, callback);
 	}
