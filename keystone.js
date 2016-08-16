@@ -10,8 +10,8 @@ var keystone = require('keystone');
 // and documentation.
 
 keystone.init({
-	'name': 'Coinava',
-	'brand': 'Coinava',
+	'name': 'OrderOne',
+	'brand': 'OrderOne',
 
 	'less': 'public',
 	'static': 'public',
@@ -61,9 +61,9 @@ keystone.set('email locals', {
 	},
 	utils: keystone.utils,
 	host: (function() {
-		if (keystone.get('env') === 'staging') return 'http://coinava-beta.herokuapp.com';
-		if (keystone.get('env') === 'production') return 'http://www.coinava.com';
-		if (keystone.get('env') === 'development') return 'http://coinava-sziaei.c9users.io:8080';
+		if (keystone.get('env') === 'staging') return 'http://orderone-beta.herokuapp.com';
+		if (keystone.get('env') === 'production') return 'http://www.orderone.com.au';
+		if (keystone.get('env') === 'development') return 'http://orderone-sziaei.c9users.io:8080';
 		return (keystone.get('host') || 'http://localhost:') + (keystone.get('port') || '3000');
 	})()
 

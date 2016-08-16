@@ -69,11 +69,11 @@ Order.schema.methods.notifyAdmin = function(callback) {
 				admin: admin.name.first || admin.name.full,
 				customer: results.customer ? results.customer.name.full : 'Somebody',
 				orderURL: '/admin/order/' + order._id,
-				subject: 'New Order to Coinava',
+				subject: 'New Order to OrderOne',
 				to: 'saeid.ziaei@cba.com.au', // admin.email,
 				from: {
-					name: 'Coinava Website',
-					email: 'dev@coinava.com'
+					name: 'OrderOne Website',
+					email: 'dev@OrderOne.com'
 				}
 			}, callback);
 	}

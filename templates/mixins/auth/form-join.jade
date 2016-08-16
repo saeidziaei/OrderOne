@@ -11,7 +11,7 @@ mixin form-join(args)
 		if args.modal
 			.modal-header
 				.modal-close &times;
-				h4.modal-title= __("Join Coinava")
+				h4.modal-title= __("Join OrderOne")
 		div(class=args.modal ? 'modal-body' : null)
 			//- p Or use your email, that's okay too:
 			form(method='post', action='/join', autocomplete='off', novalidate).auth-form
