@@ -26,7 +26,7 @@ var i18n = require('i18n-2');
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
-keystone.pre('render', middleware.rates);
+// keystone.pre('render', middleware.rates);
 keystone.pre('render', middleware.locale);
 
 // Import Route Controllers
@@ -44,14 +44,12 @@ exports = module.exports = function (app) {
 	
 	// Views
 	app.get('/', routes.views.index);
-	app.get('/blog/:category?', routes.views.blog);
-	app.get('/blog/post/:post', routes.views.post);
 	app.all('/contact', routes.views.contact);
 	app.get('/how-it-works', routes.views['how-it-works']);
 	app.all('/me*', middleware.requireUser);
 	app.get('/me', routes.views.me);
 	
-	app.all('/order/:orderType', middleware.requireUser, routes.views.order);
+	app.all('/chef', routes.views.chef);
 
 	// Session
 	app.all('/signin', routes.views.session.signin);

@@ -1,5 +1,5 @@
 include ../mixins/flash-messages
-include ../mixins/rates-table
+
 include ../mixins/auth/auth-forms
 
 mixin links-list(navLinks)
@@ -10,11 +10,7 @@ mixin links-list(navLinks)
 		li.orange: a(href='/signout')= __("Sign Out")
 	else
 		li.orange: a(href='#modal-auth').modal-trigger= __("Sign In")
-	if locale == 'fa' 
-		li: a(href='/?lang=en') English
-	else
-		li: a(href='/?lang=fa')= FARSI
-			
+
 doctype html
 html
 
@@ -50,15 +46,15 @@ html
 		block head
 
 	//- HTML BODY
-	body(class=locale == 'fa' ? "bodyRTL" : null)
+	body
 
 		//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
 		//- ... or completely change this header to suit your design.
 		
-		nav.light-blue.lighten-1(role='navigation')
+		nav.indigo.darken-4(role='navigation')
 			.nav-wrapper.container
 				a#logo-container.right.brand-logo(href='/') 		
-					img(src='/images/logo.png', width='160')
+					img(src='/images/au-flag.svg', width='100')
 
 				ul.hide-on-med-and-down
 					+links-list(navLinks)
@@ -68,7 +64,7 @@ html
 					i.material-icons menu
 
 		//- BODY
-		#body
+		main#body
 
 			//- NOTE:
 			//- There is no .container wrapping class around body blocks to allow more flexibility in design.
@@ -82,9 +78,7 @@ html
 			block flash-messages
 				+flash-messages(messages)
 				
-			.row
-				.card.col.s12.m6.offset-m3
-					+rates-table(rates)
+
 
 			//- The content block should contain the body of your template's content
 			block content
@@ -92,9 +86,9 @@ html
 
 		//- FOOTER
 
-		footer.page-footer.orange
+		footer.page-footer
 			.footer-copyright: .container
-				span= __("Copyright © 2013-%s Coinava, All rights reserved.", new Date().getFullYear())
+				span= __("Copyright © 2013-%s FSOne, All rights reserved.", new Date().getFullYear())
 
 		//- MODALS
 		block modal

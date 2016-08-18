@@ -3,20 +3,60 @@ extends ../layouts/default
 block content
 	.container
 		#index-banner.section.no-pad-bot: .container
-			h1.header.center.orange-text= __("Welcome") 
+			h1.header.center.orange-text Welcome!
 			.row.center
-				h5.header.col.s12.light=  __("Coinava is connecting Iranian bitcoin buyers and sellers")
+				h5.header.col.s12.light OrderOne is a complete Food Service Solution 
 			br
-	.container: .section: .row
-		.col.s12.m6: .icon-block.center
-			h2.light-blue-text
-				i.material-icons help
-			h5= __("What is Bitcoin")
-			p.light= __("index.whatIsBitcoin")
-			a#download-button.btn-large.waves-effect.waves-light.orange(href='https://bitcoin.org/fa/')= __("More details")
-		.col.s12.m6: .icon-block.center
-			h2.light-blue-text
-				i.material-icons ring_volume
-			h5= __("Our goal")
-			p.light= __("index.ourGoal")
-			a#download-button.btn-large.waves-effect.waves-light.orange(href='/how-it-works')= __("Start here")
+	.container: .row: .col.s10.offset-s1: .section: .row
+		.col.s12.m3
+			.card
+				.card-image
+					img(src='images/food-service.jpg')
+				.card-content
+					.card-title Card Title
+					p
+					| I am a very simple card. I am good at containing small bits of information.
+					| I am convenient because I require little markup to use effectively.
+				.card-action
+					a(href='#') 
+						| Make the switch
+						i.material-icons.right chevron_right
+		.col.s12.m3
+			.card
+				.card-image
+					img(src='images/salad.jpg')
+				.card-content
+					.card-title Card Title
+					p
+					| I am a very simple card. I am good at containing small bits of information.
+					| I am convenient because I require little markup to use effectively.
+				.card-action
+					a(href='#') 
+						| Make the switch
+						i.material-icons.right chevron_right
+		.col.s12.m3
+			.card
+				.card-image
+					img(src='images/chefs.jpg')
+				.card-content
+					.card-title Card Title
+					p
+					| I am a very simple card. I am good at containing small bits of information.
+					| I am convenient because I require little markup to use effectively.
+				.card-action
+					a(href='#') 
+						| Make the switch
+						i.material-icons.right chevron_right
+		.col.s12.m3
+			.card
+				.card-image
+					img(src='images/phone-order.jpg')
+				.card-content
+					.card-title Card Title
+					p
+					| I am a very simple card. I am good at containing small bits of information.
+					| I am convenient because I require little markup to use effectively.
+				.card-action
+					a(href='#') 
+						| Make the switch
+						i.material-icons.right chevron_right

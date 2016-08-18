@@ -8,9 +8,6 @@
  * modules in your project's /lib directory.
  */
 var _ = require('lodash');
-var moneymex = require("../utils/moneymex.js")
-var btcmarkets = require("../utils/btcmarkets.js")
-var numeral = require('numeral');
 
 /**
 	Initialises the standard view locals
@@ -24,9 +21,7 @@ exports.initLocals = function (req, res, next) {
 	
 	locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'Guide', key: 'blog', href: '/how-it-works' },
-		{ label: 'Buy', key: 'buy', href: '/order/buybtc' },
-		{ label: 'Sell', key: 'sell', href: '/order/sellbtc' },
+		{ label: 'Chef', key: 'chef', href: '/chef' },
 		{ label: 'Contact', key: 'contact', href: '/contact' },
 
 	];
@@ -55,21 +50,6 @@ exports.flashMessages = function (req, res, next) {
 	next();
 };
 
-const BUY_COMMISSION = 0.06; // 6%
-const SELL_COMMISSION = 0.04; // 4% 
-exports.rates = function(req, res, next){
-	var irr = moneymex.getMarketData();
-	var btc = btcmarkets.getMarketData();
-	btc.buy = btc.bestAsk * (1 + BUY_COMMISSION);
-	btc.sell = btc.bestBid * (1 - SELL_COMMISSION);
-	res.locals.rates = {
-		buyAUD: numeral(btc.buy).format('$0,0.00'),
-		sellAUD: numeral(btc.sell).format('$0,0.00'),
-		buyIRR: numeral(btc.buy * irr.buy).format('0,0'),
-		sellIRR: numeral(btc.sell * irr.sell).format('0,0')
-	};
-	next();
-}
 
 exports.locale = function(req, res, next) {
 	// override preferred locale

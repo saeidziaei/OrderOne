@@ -34,16 +34,12 @@
     font-style: normal;
 }
 
-.bodyRTL{
-    font-family: 'compset';
-    font-size: 20px;
-    direction: rtl;
-    text-align: right;
+.order-item-toggler{
+    position:absolute;
+    bottom: 25px; 
+    right: 5px;
 }
 
-.btn{
-    margin-left: 10px;
-}
 
 .icon-block .material-icons {
     font-size: inherit;
@@ -54,16 +50,19 @@
 
 footer, form{
 }
-input, textarea{
-    font-size: 1.2em!important;
-}
+
 .hidden{
     display:none;
 }
 
-.rates-table{
-    font-size: 12pt;   
+
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
-.rates-table td, .rates-table th{
-    padding: 5px 2px;
+
+main {
+    flex: 1 0 auto;
 }
