@@ -6,7 +6,7 @@ var MessageActions = {
         AppDispatcher.dispatch({
             actionType: constants.MESSAGE_ADD,
             message: {
-                color: 'green',
+                color: 'green-text',
                 text: msg
             }
         });
@@ -15,7 +15,7 @@ var MessageActions = {
         AppDispatcher.dispatch({
             actionType: constants.MESSAGE_ADD,
             message: {
-                color: 'red',
+                color: 'red-text',
                 text: msg
             }
         });

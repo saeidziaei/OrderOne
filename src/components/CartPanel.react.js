@@ -24,7 +24,7 @@ var CartPanel = React.createClass({
     },
     onAddOrderItemClicked: function(e){
         e.preventDefault();
-        OrderActions.showOrderItemForm(null);
+        OrderActions.showOrderItemForm({});
     },
 
 })

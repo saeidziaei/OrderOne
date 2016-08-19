@@ -4,7 +4,9 @@ var OrderActions = require('../actions/OrderActions').OrderActions;
 var OrderConstants = require('../constants');
 var CartPanel = require("./CartPanel.react");
 var OrderItemPanel = require("./OrderItemPanel.react");
-
+var NewProductPanel = require("./NewProductPanel.react");
+var MessagePanel = require("./MessagePanel.react")
+var StatPanel = require("./StatPanel.react")
 
  
 var OrderPanel = React.createClass({
@@ -12,10 +14,15 @@ var OrderPanel = React.createClass({
         return OrderStore.getState();
     },
     render: function() {
-        return(this.state.viewMode == 'CART' ? <CartPanel orderItems={this.state.orderItems} /> :
-            this.state.viewMode == 'ORDER_ITEM'   ? <OrderItemPanel /> :
-            this.state.viewMode == 'NEW_PRODUCT'  ? <NewProductPanel /> :
-            null
+        return(
+            <div className='order-panel '>
+                {this.state.viewMode == 'CART' ? <CartPanel orderItems={this.state.orderItems} /> :
+                this.state.viewMode == 'ORDER_ITEM'   ? <OrderItemPanel products={this.state.products} orderItem={this.state.orderItem} /> :
+                this.state.viewMode == 'NEW_PRODUCT'  ? <NewProductPanel /> :
+                null}
+                <MessagePanel />
+                <StatPanel />
+            </div>
             );
     },
 

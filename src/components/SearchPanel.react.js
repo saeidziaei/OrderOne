@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 
 var SearchPanel = React.createClass({
     getInitialState: function() {
@@ -15,17 +16,17 @@ var SearchPanel = React.createClass({
     render: function() {
         return (
             <div className="row">
-                <div className="col s1">
-                    Filter: &nbsp;
-                    <input ref='query' name='query' type='text' value={this.state.query} onChange={this.onQueryChange} />
-                    <div className='waves-effect waves-teal btn-flat white red-text' onClick={this.onClearSearch} >x</div>
-                    
-                </div>
+                <div className="col s10">
+                    <input ref='query' placeholder='Search' name='query' type='text'  onChange={this.onQueryChange} />
+                </div>    
+                <div className="col s2">
+                    <a className='btn-floating grey darken-3 small' title='Clear search' onClick={this.onClearSearch} ><i className="material-icons">clear</i></a>
+                </div>    
             </div>
         )
     },
     onQueryChange: function() {
-        var query = React.findDOMNode(this.refs.query).value;
+        var query = ReactDOM.findDOMNode(this.refs.query).value;
         if (this.promise) {
             clearInterval(this.promise)
         }

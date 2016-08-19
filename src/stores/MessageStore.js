@@ -33,3 +33,5 @@ MessageStore.dispatchToken = AppDispatcher.register(function(action) {
     }
     return true;
 });
+
+module.exports.MessageStore = MessageStore;

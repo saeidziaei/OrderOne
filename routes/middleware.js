@@ -51,20 +51,6 @@ exports.flashMessages = function (req, res, next) {
 };
 
 
-exports.locale = function(req, res, next) {
-	// override preferred locale
-	req.i18n.setLocale(req.i18n.defaultLocale);
-	
-	if (req.query.lang) {
-		req.i18n.setLocaleFromQuery();
-		res.cookie("lang", req.i18n.getLocale());
-	} else {
-		req.i18n.setLocaleFromCookie();
-	}
-	res.locals.locale = req.i18n.getLocale();
-	res.locals.FARSI = req.i18n.translate('fa', 'Farsi');
-	next();
-}
 
 exports.resendConfirmationEmail = function(req, res, next) {
 	req.user.confirmEmail(function(err){

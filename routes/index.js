@@ -21,27 +21,20 @@
 var keystone = require('keystone');
 var middleware = require('./middleware');
 var importRoutes = keystone.importer(__dirname);
-var i18n = require('i18n-2');
 
 // Common Middleware
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
-// keystone.pre('render', middleware.rates);
-keystone.pre('render', middleware.locale);
 
 // Import Route Controllers
 var routes = {
 	views: importRoutes('./views'),
+	api: importRoutes('./api'),
 };
 
 // Setup Route Bindings
 exports = module.exports = function (app) {
-	i18n.expressBind(app, {
-	    // setup some locales - other locales default to en silently
-	    locales: ['fa', 'en'], 
-    	defaultLocale: 'fa',
-	});
-	
+
 	// Views
 	app.get('/', routes.views.index);
 	app.all('/contact', routes.views.contact);
@@ -63,5 +56,8 @@ exports = module.exports = function (app) {
 	app.all('/admin/dashboard', routes.views.admin.dashboard);
 	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
 	// app.get('/protected', middleware.requireUser, routes.views.protected);
+
+
+	app.get('/api/product/search', keystone.middleware.api, /*middleware.requireUser, */ routes.api.product.searchProduct);
 
 };

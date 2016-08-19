@@ -4,12 +4,12 @@ include ../mixins/auth/auth-forms
 
 mixin links-list(navLinks)
 	each link in navLinks
-		li(class=(section == link.key ? 'active' : null)): a(href=link.href)= __(link.label)
+		li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
 	if user
 		li.purple: a(href='/me')= user.name.first
-		li.orange: a(href='/signout')= __("Sign Out")
+		li.orange: a(href='/signout') Sign Out
 	else
-		li.orange: a(href='#modal-auth').modal-trigger= __("Sign In")
+		li.orange: a(href='#modal-auth').modal-trigger Sign In
 
 doctype html
 html
@@ -20,7 +20,7 @@ html
 		meta(name="viewport", content="width=device-width, initial-scale=1.0")
 		meta(http-equiv="X-UA-Compatible" content="IE=edge")
 
-		title= (__(page.title) || "") 
+		title= (page.title || "") 
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
 
 		//- Customise the stylesheet for your site by editing /public/styles/site.less
@@ -88,7 +88,7 @@ html
 
 		footer.page-footer
 			.footer-copyright: .container
-				span= __("Copyright © 2013-%s FSOne, All rights reserved.", new Date().getFullYear())
+				span= "Copyright © 2013-" + new Date().getFullYear() + "%s FSOne, All rights reserved." 
 
 		//- MODALS
 		block modal

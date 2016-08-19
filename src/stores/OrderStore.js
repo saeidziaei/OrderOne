@@ -6,25 +6,22 @@ var constants = require('../constants');
 
 var _state = {
     viewMode: 'CART', // possible values -> CART, ORDER_ITEM, NEW_PRODUCT
-    orderItems: [
-        {product:{_id: "13dxidfew", name:"Milk full cream 40% fat", vendor:"Food Vest", price:"4"}, count:5},
-        {product:{_id: "xddxidfew", name:"White toast bread 650g", vendor:"Food Vest",  price:"2"}, count:15},
-        ],
+    orderItems: [],
     orderItem: {}, // the order item that is currently being added or edited
     products: [], // search result for product search when adding a new order item
 }
 
 var _props = {
-    url: '/api/products/'
+    url: '/api/product/'
 }
 
 var _searchProduct = function(query) {
     $.ajax({
-        url: _props.url+'?search='+query,
+        url: _props.url+'search/?query='+query,
         dataType: 'json',
         cache: false,
         success: function(data) {
-            _state.products = data;
+            _state.products = data.products;
             OrderStore.emitChange();
         },
         error: function(xhr, status, err) {
@@ -127,7 +124,12 @@ AppDispatcher.register(function(action) {
         case constants.ADD_ORDER_ITEM:
             _addOrderItem(action.orderItem);
             break;
-        
+            
+        case constants.REPLACE_ORDER_ITEM:
+            _removeOrderItem(action.oldOrderItem);
+            _addOrderItem(action.newOrderItem);
+            break;
+
         case constants.REMOVE_ORDER_ITEM:
             _removeOrderItem(action.orderItem);
             break;

@@ -36,6 +36,13 @@ var OrderActions = {
             orderItem: orderItem
         });
     },
+    replaceOrderItem: function(oldOrderItem, newOrderItem){
+        AppDispatcher.dispatch({
+            actionType: constants.REPLACE_ORDER_ITEM,
+            oldOrderItem: oldOrderItem,
+            newOrderItem: newOrderItem
+        });
+    },
     removeOrderItem: function(orderItem) {
         AppDispatcher.dispatch({
             actionType: constants.REMOVE_ORDER_ITEM,

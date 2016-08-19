@@ -11,7 +11,7 @@ mixin form-signin(args)
 		if args.modal
 			.modal-header
 				.modal-close &times;
-				h4.modal-title= __("Sign In")
+				h4.modal-title Sign In
 		div(class=args.modal ? 'modal-content' : null)
 			
 			form(method='post', action='/signin', role='signin', novalidate).auth-form
@@ -24,10 +24,10 @@ mixin form-signin(args)
 					.form-group
 						label(for='signin-password').sr-only Password
 						input(type='password', name='password', placeholder='Password', id='signin-password', value='').form-control.form-control--last
-				button(type='submit').btn.blue= __("Go")
+				button(type='submit').btn.blue Go
 			
 			.row.text-muted.mt-3
-				.col.s8= __("Don't have an account?")
-					a(href=args.modal ? js : '/join', rel=args.modal ? 'modal-pane' : null, data-modal-pane=args.modal ? 'join' : null)= __("Join Coinava")
+				.col.s8 Don't have an account?
+					a(href=args.modal ? js : '/join', rel=args.modal ? 'modal-pane' : null, data-modal-pane=args.modal ? 'join' : null) Join 
 				.col-s4.right
-					a(href=args.modal ? js : '/forgot-password', rel=args.modal ? 'modal-pane' : null, data-modal-pane=args.modal ? 'password' : null)= __("Forgot password?")
+					a(href=args.modal ? js : '/forgot-password', rel=args.modal ? 'modal-pane' : null, data-modal-pane=args.modal ? 'password' : null) Forgot password?
