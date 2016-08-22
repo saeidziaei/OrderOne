@@ -20,7 +20,7 @@ var OrderPanel = React.createClass({
                 this.state.viewMode == 'ORDER_ITEM'   ? <OrderItemPanel products={this.state.products} orderItem={this.state.orderItem} /> :
                 this.state.viewMode == 'NEW_PRODUCT'  ? <NewProductPanel /> :
                 null}
-                <MessagePanel />
+                
                 <StatPanel />
             </div>
             );

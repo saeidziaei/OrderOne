@@ -9,14 +9,20 @@ var StatPanel = React.createClass({
     },
     render: function() {
         return(
-            <div className="card-panel">
-                <h3>
-                {this.state.orderItems ? this.state.orderItems.length : 0}&nbsp;Items
+            <div className="card-panel flow-text">
+                
+                {this.getCount()}&nbsp;{this.getCount() > 1 ? 'Items' :'Item' }
                 -
-                Total:&nbsp;
-                {numeral(_.sumBy(this.state.orderItems, function(o) { console.log("count", o); return o.qty * o.product.price; })).format('$0,0.00')}</h3>
+                Total&nbsp;
+                <strong>{numeral(this.getSum()).format('$0,0.00')}</strong>
             </div>
         );
+    },
+    getSum: function(){
+        return _.sumBy(this.state.orderItems, function(o) { console.log("count", o); return o.qty * o.product.price; });
+    },
+    getCount: function(){
+        return this.state.orderItems ? this.state.orderItems.length : 0;
     },
     _onCartChange: function() {
         
